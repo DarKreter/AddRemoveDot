@@ -1,0 +1,61 @@
+#ifndef STRINGMANAGMENT_H
+#define STRINGMANAGMENT_H
+
+#include <string>
+#include <locale>
+#include <vector>
+#include <tchar.h>
+
+namespace sm
+{
+	/**
+		Zmienia wstringa na stringa
+	*/
+	std::string WSTS(std::wstring const& text); //WStringToString
+
+	/**
+		Zmienia stringa na wstringa
+	*/
+	std::wstring STWS(std::string const& text); //StringToWtring
+
+	/*
+		Zmienia stringa na TCHAR*
+	*/
+	const TCHAR* S2TCharP(std::string); //stringToTCharPointer
+
+	/*
+		Usuwa biale znaki z poczatku napisu
+		@param napis do edycji
+		@param napis ktory zawiera znaki do usuniecia z przodu napisu
+				domniemanie " \t"
+	*/
+	std::string RemoveWSBegin(const std::string&, const std::string = " \t");
+
+	/*
+		Usuwa biale znaki z konca napisu
+		@param napis do edycji
+		@param napis ktory zawiera znaki do usuniecia z tylu napisu
+				domniemanie " \t"
+	*/
+	std::string RemoveWSEnd(const std::string&, const std::string = " \t");
+
+	/*
+		Usuwa biale znaki z poczatku i konca napisu
+		@param napis do edycji
+		@param napis ktory zawiera znaki do usuniecia z przodu i tylu napisu
+				domniemanie " \t"
+	*/
+	std::string RemoveWSBeginEnd(const std::string&, const std::string = " \t");
+
+	/*
+		Zamienia ciagi bialych znakow na spacje(dowolny znak)
+		@param napis do edycji
+		@param na jaki znak ma taki ciag byc zamieniony | domniemanie " "
+		@param napis ktory zawiera znaki ktoych ciagi beda zamieniane
+				domniemanie " \t"
+	*/
+	std::string RemoveDoubleWS(std::string, const std::string = " ", const std::string = " \t");
+}
+
+#endif // !STRINGMANAGMENT_H
+
